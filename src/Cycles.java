@@ -1,9 +1,7 @@
 public class Cycles {
     private int percent;
-    private int number;
     private int sumFinal;
     private int sumStart;
-    private int monthDeferMoney;
     private float temp;
     private int month;
     private int years;
@@ -11,12 +9,11 @@ public class Cycles {
     public void task1() {
         // В задаче не сказано откладываем под процент или нет, поэтому если без процентов надо, подставьте в percent 0
         System.out.println("Задача 1");
-        number = 12; // количество месяцев
         sumStart = 0;
         sumFinal = 2_459_000;
         percent = 8;
         month = 0;
-        monthDeferMoney = 15_000;
+        int monthDeferMoney = 15_000;
         temp = (percent / 12f + 100f) / 100f; // расчитываем коэффицент для данного процента
         while (sumStart < sumFinal) {
             sumStart = (int) ((sumStart + monthDeferMoney) * temp);
@@ -46,8 +43,8 @@ public class Cycles {
         int peopleAll = 12_000_000;
         years = 10;
         for (int i = 1; i <= years; i++) {
-            int temp = (bornPeople - deathPeople) * peopleAll / 1000;
-            peopleAll += temp;
+            float temp = (bornPeople - deathPeople) * peopleAll / 1000f;
+            peopleAll += (int) temp;
             System.out.println("Год " + i + ", численность населения составляет " + peopleAll);
         }
         System.out.println();
@@ -92,15 +89,11 @@ public class Cycles {
         years = 9;
         month = 0;
         temp = (1f + percent / 100f);
-        int i = 0;
-        while (i < years) {
+       for(int i = 0; i <= years * 12; i++) {
             sumStart *= temp;
             month++;
             if (month % 6 == 0) {
                 System.out.println("Сумма накоплений " + sumStart + " рублей за " + month + " месяцев");
-            }
-            if (month % 12 == 0) {
-                i++;
             }
         }
         System.out.println();

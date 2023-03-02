@@ -22,14 +22,7 @@ public class Task7 {
     }
 
     public boolean isCorrectInput() {
-        if (yearsFrom <= yearsTo) {
-            if (monthFrom <= monthTo) {
-                if (monthTo <= 12 && monthTo > 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return yearsFrom <= yearsTo && monthFrom <= monthTo && monthTo <= 12 && monthTo > 0;
     }
 
     public void task7() {
@@ -74,6 +67,12 @@ public class Task7 {
     public int dayOfMonthAll() {
         switch (monthFrom) {
             case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
                 days = 31;
                 break;
             case 2:
@@ -83,35 +82,11 @@ public class Task7 {
                     days = 28;
                 }
                 break;
-            case 3:
-                days = 31;
-                break;
             case 4:
-                days = 30;
-                break;
-            case 5:
-                days = 31;
-                break;
+            case 9:
+            case 11:
             case 6:
                 days = 30;
-                break;
-            case 7:
-                days = 31;
-                break;
-            case 8:
-                days = 31;
-                break;
-            case 9:
-                days = 30;
-                break;
-            case 10:
-                days = 31;
-                break;
-            case 11:
-                days = 30;
-                break;
-            case 12:
-                days = 31;
                 break;
         }
         return days;
